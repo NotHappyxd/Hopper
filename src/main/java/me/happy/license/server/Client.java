@@ -13,7 +13,7 @@ public class Client {
             Socket socket = new Socket("localhost", 3926);
 
             PrintWriter writer = new PrintWriter(socket.getOutputStream());
-            writer.println("f");
+            writer.println("license");
             writer.flush();
 
             socket.setSoTimeout(10 * 1000);
