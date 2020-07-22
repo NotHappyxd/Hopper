@@ -6,6 +6,7 @@ import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import me.happy.license.server.discord.DiscordBot;
 import org.bson.Document;
 
 import java.io.BufferedReader;
@@ -37,11 +38,10 @@ public class Server {
 
         licenseCollection.find().into(new HashSet<>()).forEach(document -> {
             licenses.add(new License(document.getString("license"), document.getString("clientName"), document.getLong("addedAt"),
-                    document.getLong("expiresAt"), document.getInteger("ipLimit")));
+                    document.getLong("expiresIn"), document.getInteger("ipLimit")));
         });
 
-
-
+        // new DiscordBot(); If you want to add a discord bot, uncomment this line
         ServerSocket serverSocket = new ServerSocket(3926);
 
         while (true) {
@@ -96,5 +96,13 @@ public class Server {
             bufferedReader.close();
             writer.close();
         }
+    }
+
+    public static List<License> getLicenses() {
+        return licenses;
+    }
+
+    public static MongoClient getClient() {
+        return client;
     }
 }
