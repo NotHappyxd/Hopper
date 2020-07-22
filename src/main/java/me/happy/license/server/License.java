@@ -1,17 +1,23 @@
 package me.happy.license.server;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class License {
 
     private String license;
     private String clientName;
     private long addedAt;
     private long expiresAt;
+    private int ipLimit = 1;
+    private List<String> ips = new ArrayList<>();
 
-    public License(String license, String clientName, long addedAt, long expiresAt) {
+    public License(String license, String clientName, long addedAt, long expiresAt, int ipLimit) {
         this.license = license;
         this.clientName = clientName;
         this.addedAt = addedAt;
         this.expiresAt = expiresAt;
+        this.ipLimit = ipLimit;
     }
 
     public boolean hasExpired() {
@@ -54,5 +60,21 @@ public class License {
 
     public void setExpiresIn(long expiresIn) {
         this.expiresAt = expiresIn;
+    }
+
+    public int getIpLimit() {
+        return ipLimit;
+    }
+
+    public void setIpLimit(int ipLimit) {
+        this.ipLimit = ipLimit;
+    }
+
+    public List<String> getIps() {
+        return ips;
+    }
+
+    public void setIps(List<String> ips) {
+        this.ips = ips;
     }
 }

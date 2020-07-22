@@ -14,6 +14,7 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>3.10.1</version>
         </dependency>
+
     </dependencies>
 
     <build>
