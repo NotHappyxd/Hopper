@@ -41,3 +41,5 @@ Then, it is ready.
 ---
 
 # Keep in mind that this is not production-ready and may contain bugs. This project will be worked on in my free time. Please make a issue on github if you spot any issues and make a pull request if you have any changes.
+
+# Any unauthorized selling of this program is program is prohibited.
